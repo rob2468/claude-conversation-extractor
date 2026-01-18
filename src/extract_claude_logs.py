@@ -310,7 +310,7 @@ class ClaudeConversationExtractor:
             date_str = datetime.now().strftime("%Y-%m-%d")
             time_str = ""
 
-        filename = f"claude-conversation-{date_str}-{session_id[:8]}.md"
+        filename = f"claude-conversation-{date_str}-{time_str}-{session_id[:8]}.md"
         output_path = self.output_dir / filename
 
         with open(output_path, "w", encoding="utf-8") as f:
@@ -371,7 +371,7 @@ class ClaudeConversationExtractor:
             date_str = datetime.now().strftime("%Y-%m-%d")
             time_str = ""
 
-        filename = f"claude-conversation-{date_str}-{session_id[:8]}.json"
+        filename = f"claude-conversation-{date_str}-{time_str}-{session_id[:8]}.json"
         output_path = self.output_dir / filename
 
         # Create JSON structure
@@ -411,7 +411,7 @@ class ClaudeConversationExtractor:
             date_str = datetime.now().strftime("%Y-%m-%d")
             time_str = ""
 
-        filename = f"claude-conversation-{date_str}-{session_id[:8]}.html"
+        filename = f"claude-conversation-{date_str}-{time_str}-{session_id[:8]}.html"
         output_path = self.output_dir / filename
 
         # HTML template with modern styling
