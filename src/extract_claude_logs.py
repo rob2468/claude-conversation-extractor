@@ -363,10 +363,13 @@ class ClaudeConversationExtractor:
                 local_time_struct = time.localtime(dt.timestamp())
 
                 date_str = time.strftime("%Y-%m-%d", local_time_struct)
+                time_str = time.strftime("%H:%M:%S", local_time_struct)
             except Exception:
                 date_str = datetime.now().strftime("%Y-%m-%d")
+                time_str = ""
         else:
             date_str = datetime.now().strftime("%Y-%m-%d")
+            time_str = ""
 
         filename = f"claude-conversation-{date_str}-{session_id[:8]}.json"
         output_path = self.output_dir / filename
@@ -374,7 +377,7 @@ class ClaudeConversationExtractor:
         # Create JSON structure
         output = {
             "session_id": session_id,
-            "date": date_str,
+            "date": date_str + " " + time_str,
             "message_count": len(conversation),
             "messages": conversation
         }
